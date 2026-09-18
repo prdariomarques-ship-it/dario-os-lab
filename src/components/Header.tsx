@@ -3,7 +3,7 @@
  */
 
 import React from 'react';
-import { Brain, Cpu, ShieldCheck, Terminal, Zap } from 'lucide-react';
+import { Brain, Cpu, Download, ShieldCheck, Terminal, Zap } from 'lucide-react';
 
 interface HeaderProps {
   activeTab: string;
@@ -84,6 +84,16 @@ export const Header: React.FC<HeaderProps> = ({
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
               <span className="font-medium">Runtime Ready</span>
             </div>
+
+            <a
+              href="/api/download-zip"
+              download="darius-os-lab.zip"
+              title="Download Complete Project ZIP"
+              className="flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-zinc-900 text-white hover:bg-zinc-800 transition-colors font-medium shadow-xs"
+            >
+              <Download className="w-3.5 h-3.5 text-amber-400" />
+              <span>Baixar ZIP</span>
+            </a>
           </div>
         </div>
 

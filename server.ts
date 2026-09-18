@@ -60,6 +60,15 @@ app.get('/api/ai/models', (req, res) => {
   });
 });
 
+app.get('/api/download-zip', (req, res) => {
+  const zipPath = path.resolve(process.cwd(), 'darius-os-lab.zip');
+  res.download(zipPath, 'darius-os-lab.zip', (err) => {
+    if (err && !res.headersSent) {
+      res.status(500).json({ error: 'Failed to download zip file' });
+    }
+  });
+});
+
 app.post('/api/ai/generate', async (req, res) => {
   try {
     const { input, options, modelId } = req.body;
