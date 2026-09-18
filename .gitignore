@@ -1,0 +1,15 @@
+.env
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+*.log
+logs/
+node_modules/
+.signal_state.json
+web_export_output.log
+submit.sh
+web_export.sh
+DARIUS_WEB_EXPORT.zip
+web/node_modules/
+web/dist/

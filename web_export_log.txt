@@ -1,0 +1,22 @@
+---
+WEB_FILE_COUNT: 8
+WEB_ZIP_SIZE: 4.0K
+WEB_ZIP_SHA256: 75808be29e6b0eec6a1d2bc7a976dd6f04e0ee76e76b86f63f7da080b4fd671f
+---
+ZIP Contents:
+Archive:  DARIUS_WEB_EXPORT.zip
+  Length      Date    Time    Name
+---------  ---------- -----   ----
+        0  2026-09-12 16:31   web/
+        0  2026-09-12 16:31   web/public/
+        0  2026-09-12 16:31   web/src/
+      211  2026-09-12 16:32   web/src/index.css
+     1119  2026-09-12 16:32   web/src/App.tsx
+      246  2026-09-12 16:32   web/src/main.tsx
+      118  2026-09-12 16:32   web/tailwind.config.js
+      276  2026-09-12 16:32   web/vite.config.ts
+       69  2026-09-12 16:32   web/postcss.config.js
+      337  2026-09-12 16:32   web/index.html
+      622  2026-09-12 16:32   web/package.json
+---------                     -------
+     2998                     11 files
