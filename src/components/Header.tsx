@@ -98,37 +98,53 @@ export const Header: React.FC<HeaderProps> = ({
         </div>
 
         {/* Navigation Tabs */}
-        <nav className="flex space-x-1 sm:space-x-4 overflow-x-auto py-2 scrollbar-none" aria-label="Main Navigation">
-          {NAVIGATION_TABS.map((tab) => {
-            const Icon = tabIcons[tab.id] || Brain;
-            const isActive = activeTab === tab.id;
-            return (
-              <button
-                key={tab.id}
-                id={`tab-${tab.id}`}
-                onClick={() => setActiveTab(tab.id)}
-                title={`Switch to ${tab.label} (Alt+${tab.shortcut})`}
-                aria-keyshortcuts={`Alt+${tab.shortcut}`}
-                className={`group flex items-center gap-2 px-3 py-1.5 text-xs sm:text-sm font-medium rounded-md whitespace-nowrap transition-colors ${
-                  isActive
-                    ? 'bg-zinc-900 text-white shadow-sm'
-                    : 'text-zinc-600 hover:text-zinc-900 hover:bg-zinc-100'
-                }`}
-              >
-                <Icon className={`w-4 h-4 ${isActive ? 'text-amber-400' : 'text-zinc-400'}`} />
-                <span>{tab.label}</span>
-                <kbd
-                  className={`hidden sm:inline-block text-[10px] font-mono font-normal px-1.5 py-0.5 rounded transition-opacity ${
+        <nav className="flex items-center space-x-1 sm:space-x-4 overflow-x-auto py-2 scrollbar-none" aria-label="Main Navigation">
+          <div className="flex items-center space-x-1 sm:space-x-2">
+            {NAVIGATION_TABS.map((tab) => {
+              const Icon = tabIcons[tab.id] || Brain;
+              const isActive = activeTab === tab.id;
+              return (
+                <button
+                  key={tab.id}
+                  id={`tab-${tab.id}`}
+                  onClick={() => setActiveTab(tab.id)}
+                  title={`Switch to ${tab.label} (Alt+${tab.shortcut})`}
+                  aria-keyshortcuts={`Alt+${tab.shortcut}`}
+                  className={`group flex items-center gap-2 px-3 py-1.5 text-xs sm:text-sm font-medium rounded-md whitespace-nowrap transition-colors ${
                     isActive
-                      ? 'bg-zinc-800 text-zinc-300 border border-zinc-700'
-                      : 'bg-zinc-200/70 text-zinc-500 border border-zinc-300/80 group-hover:text-zinc-700'
+                      ? 'bg-zinc-900 text-white shadow-sm'
+                      : 'text-zinc-600 hover:text-zinc-900 hover:bg-zinc-100'
                   }`}
                 >
-                  Alt+{tab.shortcut}
-                </kbd>
-              </button>
-            );
-          })}
+                  <Icon className={`w-4 h-4 ${isActive ? 'text-amber-400' : 'text-zinc-400'}`} />
+                  <span>{tab.label}</span>
+                  <kbd
+                    className={`hidden sm:inline-block text-[10px] font-mono font-normal px-1.5 py-0.5 rounded transition-opacity ${
+                      isActive
+                        ? 'bg-zinc-800 text-zinc-300 border border-zinc-700'
+                        : 'bg-zinc-200/70 text-zinc-500 border border-zinc-300/80 group-hover:text-zinc-700'
+                    }`}
+                  >
+                    Alt+{tab.shortcut}
+                  </kbd>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Prominent Download Button inside nav */}
+          <div className="ml-auto pl-4 flex items-center">
+            <a
+              id="header-nav-download-zip"
+              href="/api/download-zip"
+              download="darius-os-lab.zip"
+              title="Baixar arquivo ZIP completo do projeto para o GitHub"
+              className="flex items-center gap-1.5 px-3 py-1.5 text-xs sm:text-sm font-bold rounded-md bg-amber-400 hover:bg-amber-300 text-zinc-950 border border-amber-500 shadow-sm transition-all whitespace-nowrap"
+            >
+              <Download className="w-4 h-4 text-zinc-950" />
+              <span>Baixar ZIP do Projeto</span>
+            </a>
+          </div>
         </nav>
       </div>
     </header>
