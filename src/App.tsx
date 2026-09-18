@@ -12,6 +12,7 @@ import { ContextInspector } from './components/ContextInspector.tsx';
 import { ReasoningView } from './components/ReasoningView.tsx';
 import { RouterView } from './components/RouterView.tsx';
 import { EvaluationView } from './components/EvaluationView.tsx';
+import { ExportModal } from './components/ExportModal.tsx';
 import { useTabKeyboardShortcuts } from './hooks/useKeyboardShortcuts.ts';
 import { Command } from 'lucide-react';
 
@@ -20,6 +21,7 @@ export default function App() {
   const [activeProvider, setActiveProvider] = useState<string>('gemini-3.8-flash');
   const [hasGeminiKey, setHasGeminiKey] = useState<boolean>(true);
   const [shortcutFeedback, setShortcutFeedback] = useState<{ label: string; key: number } | null>(null);
+  const [isExportOpen, setIsExportOpen] = useState<boolean>(false);
 
   const handleShortcutTriggered = useCallback((tab: { id: string; label: string }, keyNum: number) => {
     setShortcutFeedback({ label: tab.label, key: keyNum });
@@ -59,6 +61,7 @@ export default function App() {
         activeProvider={activeProvider}
         setActiveProvider={setActiveProvider}
         hasGeminiKey={hasGeminiKey}
+        onOpenExport={() => setIsExportOpen(true)}
       />
 
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pb-16">
@@ -98,6 +101,8 @@ export default function App() {
           </kbd>
         </div>
       )}
+      {/* Export & ZIP Modal */}
+      <ExportModal isOpen={isExportOpen} onClose={() => setIsExportOpen(false)} />
     </div>
   );
 }

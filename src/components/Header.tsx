@@ -11,6 +11,7 @@ interface HeaderProps {
   activeProvider: string;
   setActiveProvider: (p: string) => void;
   hasGeminiKey: boolean;
+  onOpenExport: () => void;
 }
 
 export interface NavTabItem {
@@ -34,6 +35,7 @@ export const Header: React.FC<HeaderProps> = ({
   activeProvider,
   setActiveProvider,
   hasGeminiKey,
+  onOpenExport,
 }) => {
   const tabIcons: Record<string, React.ElementType> = {
     overview: Brain,
@@ -85,15 +87,14 @@ export const Header: React.FC<HeaderProps> = ({
               <span className="font-medium">Runtime Ready</span>
             </div>
 
-            <a
-              href="/api/download-zip"
-              download="darius-os-lab.zip"
+            <button
+              onClick={onOpenExport}
               title="Download Complete Project ZIP"
-              className="flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-zinc-900 text-white hover:bg-zinc-800 transition-colors font-medium shadow-xs"
+              className="flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-zinc-900 text-white hover:bg-zinc-800 transition-colors font-medium shadow-xs cursor-pointer"
             >
               <Download className="w-3.5 h-3.5 text-amber-400" />
               <span>Baixar ZIP</span>
-            </a>
+            </button>
           </div>
         </div>
 
@@ -134,16 +135,15 @@ export const Header: React.FC<HeaderProps> = ({
 
           {/* Prominent Download Button inside nav */}
           <div className="ml-auto pl-4 flex items-center">
-            <a
+            <button
               id="header-nav-download-zip"
-              href="/api/download-zip"
-              download="darius-os-lab.zip"
+              onClick={onOpenExport}
               title="Baixar arquivo ZIP completo do projeto para o GitHub"
-              className="flex items-center gap-1.5 px-3 py-1.5 text-xs sm:text-sm font-bold rounded-md bg-amber-400 hover:bg-amber-300 text-zinc-950 border border-amber-500 shadow-sm transition-all whitespace-nowrap"
+              className="flex items-center gap-1.5 px-3 py-1.5 text-xs sm:text-sm font-bold rounded-md bg-amber-400 hover:bg-amber-300 text-zinc-950 border border-amber-500 shadow-sm transition-all whitespace-nowrap cursor-pointer"
             >
               <Download className="w-4 h-4 text-zinc-950" />
               <span>Baixar ZIP do Projeto</span>
-            </a>
+            </button>
           </div>
         </nav>
       </div>
