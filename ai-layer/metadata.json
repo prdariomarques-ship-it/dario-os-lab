@@ -1,0 +1,6 @@
+{
+  "name": "DARIUS OSS - AI & Reasoning Layer",
+  "description": "Model abstraction, agent reasoning loop, context engineering, evaluation benchmarks, and model routing for DARIUS Open Source Agent.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
